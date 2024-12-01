@@ -1,9 +1,10 @@
 const browserListData = [];
+/** Please add your Qdrant cluster url, Qdrant cluster api key and google gemini api key */
 const CONFIG = {
-  QDRANT_URL: "",
-  QDRANT_KEY: "",
-  collection_name: "my_collection",
-  GEMINI_API_KEY: "",
+  QDRANT_URL: "" /** Qdrant cluster url */,
+  QDRANT_KEY: "" /** Qdrant cluster api key */,
+  collection_name: "my_collection" /** Qdrant collection name */,
+  GEMINI_API_KEY: "" /** Google gemini api key  */,
 };
 
 function generateRandomId(length = 3) {
