@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Bookmarks",
+  "version": "1.0",
+  "description": "A smart bookmarking tool with AI-enhanced features.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "assets/icon.png",
+    "default_title": "Bookmark Trigger"
+  },
+  "permissions": [
+    "bookmarks",
+    "storage",
+    "tabs",
+    "activeTab",
+    "aiLanguageModelOriginTrial",
+    "scripting"
+  ],
+  "icons": {
+    "128": "assets/icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "trial_tokens": [
+    "AjKf5O5uhjW03Qw717Wt90/obsMxNi18aSMRWas1uEdSXocv7btp0JII5dobbZH18ZhLc7BvMxB4IWRjxz1taAIAAAB4eyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vb2NpbGxrZWNoYmtjY2NuZmpubWJiam1ka3BnbWRmb2MiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElGb3JFeHRlbnNpb24iLCJleHBpcnkiOjE3NjA0ODYzOTl9"
+  ],
+  "host_permissions": ["<all_urls>"]
+}

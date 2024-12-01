@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Smart Bookmarks</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="loader">
+        <div></div>
+      </div>
+      <h1>Smart Bookmarks</h1>
+      <input type="text" id="searchInput" placeholder="Search bookmarks..." />
+      <div class="text-loading" id="text-loading"><span>Loading...</span></div>
+      <div id="bookmark-url" class="bookmark-url"></div>
+      <div id="summarytext"></div>
+      <div id="bookmarkList"></div>
+    </div>
+    <script src="mockData.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
