@@ -1,10 +1,9 @@
 const browserListData = [];
 const CONFIG = {
-  QDRANT_URL:
-    "https://a212132c-0c2a-49cf-bef0-ef0ec4dda7c8.us-east4-0.gcp.cloud.qdrant.io:6333",
-  QDRANT_KEY: "X29h0rQBHjrsbkws43wh9vIauJkRMCWts0RqhXFLHgATuDUws82VoQ",
+  QDRANT_URL: "",
+  QDRANT_KEY: "",
   collection_name: "my_collection",
-  GEMINI_API_KEY: "AIzaSyA_BCowdo05e9rXLQgq3aAUZWVnqe_iZe8",
+  GEMINI_API_KEY: "",
 };
 
 function generateRandomId(length = 3) {
