@@ -1,4 +1,4 @@
-const browserListData = [];
+let browserListData = [];
 /** Please add your Qdrant cluster url, Qdrant cluster api key and google gemini api key */
 const CONFIG = {
   QDRANT_URL: "" /** Qdrant cluster url */,
@@ -200,6 +200,41 @@ async function insertData(data, ele) {
   } catch (error) {}
 }
 
+async function deletePoint(id) {
+  const url = `${CONFIG.QDRANT_URL}/collections/${CONFIG.collection_name}/points/delete`; // Replace with your cluster URL
+  const apiKey = CONFIG.QDRANT_KEY; // Replace with your actual API key
+
+  const payload = {
+    points: [id],
+  };
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`, // API key for authentication
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+
+      const searchPoints = result.result.points;
+      const filteredArray = browserListData.filter((obj1) => obj1.id != id);
+      browserListData = filteredArray;
+      renderBookmarksData(filteredArray);
+    } else {
+      const error = await response.json();
+      console.error("Error getCollectionData data:", error);
+    }
+    enableDisableTextLoading(false);
+  } catch (error) {
+    console.error("Network or server error:", error);
+    enableDisableTextLoading(false);
+  }
+}
+
 function renderBookmarksData(data) {
   const bookmarkList = document.getElementById("bookmarkList");
   bookmarkList.innerHTML = ""; // Clear existing bookmarks
@@ -209,9 +244,20 @@ function renderBookmarksData(data) {
     const summaryElement = document.createElement("div");
     renderSummarizeOutput(summaryElement, bookmark.summary, bookmark.keywords);
 
-    bookmarkItem.innerHTML = `
-        <a href="${bookmark.bookmarkUrl}" target="_blank">${bookmark.bookmarkUrl}</a>
-      `;
+    const urlDiv = document.createElement("div");
+    urlDiv.style.display = "flex";
+    urlDiv.innerHTML = `<a class="bookmark-url" href="${bookmark.bookmarkUrl}" target="_blank">${bookmark.bookmarkUrl}</a>`;
+    const imgEle = document.createElement("img");
+    imgEle.classList.add("trash");
+    imgEle.src = "./assets/trash.png";
+    imgEle.alt = "./assets/trash.png";
+
+    imgEle.addEventListener("click", (e) => {
+      deletePoint(bookmark.id);
+    });
+
+    urlDiv.appendChild(imgEle);
+    bookmarkItem.appendChild(urlDiv);
     bookmarkItem.appendChild(summaryElement);
     bookmarkList.appendChild(bookmarkItem);
   });

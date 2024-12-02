@@ -96,3 +96,13 @@ h1 {
   margin-left: 3px;
   font-weight: bold;
 }
+
+.bookmark-url {
+  word-wrap: break-word;
+  width: 250px;
+}
+
+.trash {
+  width: 20px;
+  height: 20px;
+}
