@@ -373,7 +373,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const vector = vectorData.embedding.values;
         const payload = {
           query: vector,
-          limit: 1,
+          limit: 5,
         };
         searchData(payload);
       } else {
