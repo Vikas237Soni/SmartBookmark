@@ -22,9 +22,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "trial_tokens": [
-    "AjKf5O5uhjW03Qw717Wt90/obsMxNi18aSMRWas1uEdSXocv7btp0JII5dobbZH18ZhLc7BvMxB4IWRjxz1taAIAAAB4eyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vb2NpbGxrZWNoYmtjY2NuZmpubWJiam1ka3BnbWRmb2MiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElGb3JFeHRlbnNpb24iLCJleHBpcnkiOjE3NjA0ODYzOTl9"
-  ],
+  "trial_tokens": [""],
   "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
